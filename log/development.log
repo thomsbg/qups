@@ -1,0 +1,1963 @@
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 20:46:35) [GET]
+  [4;36;1mState Load (13.7ms)[0m   [0;1mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;35;1mRegion Load (0.4ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" IN ('53',NULL)) [0m
+  [4;36;1mReport Load (0.9ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;35;1mReport Load (0.3ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_pinned (2.6ms)
+Rendered regions/_option (0.2ms)
+Rendered regions/_option (0.1ms)
+Rendered regions/_pinned (1.7ms)
+Rendered regions/_pinned (1.0ms)
+Rendered reports/_preview (1.6ms)
+Rendered reports/_preview (0.4ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+  [4;36;1mRegion Load (0.4ms)[0m   [0;1mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (1.1ms)
+Completed in 82ms (View: 51, DB: 16) | 200 OK [http://localhost/]
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 20:46:38) [GET]
+  [4;35;1mState Load (0.4ms)[0m   [0mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;36;1mRegion Load (0.2ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" IS NULL) [0m
+  [4;35;1mReport Load (0.6ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;36;1mReport Load (0.3ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_option (1.3ms)
+Rendered regions/_option (0.1ms)
+Rendered reports/_preview (1.4ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+  [4;35;1mRegion Load (0.3ms)[0m   [0mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (1.0ms)
+Completed in 88ms (View: 74, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 20:46:41) [GET]
+  Parameters: {"state_fips"=>"53"}
+  [4;36;1mState Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;35;1mCounty Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions".state_id = 1) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.3ms)
+Completed in 14ms (View: 4, DB: 1) | 200 OK [http://localhost/regions/counties?state_fips=53]
+
+
+Processing RegionsController#pin (for 127.0.0.1 at 2010-04-06 20:46:43) [POST]
+  Parameters: {"state_fips"=>"53", "authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o="}
+  [4;36;1mRegion Load (0.2ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') LIMIT 1[0m
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>["53"], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 12ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/pin]
+
+
+Processing RegionsController#pin (for 127.0.0.1 at 2010-04-06 20:46:46) [POST]
+  Parameters: {"authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", "county_fips"=>"53033"}
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>["53"], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 3ms (View: 1, DB: 0) | 400 Bad Request [http://localhost/regions/pin]
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 20:49:12) [GET]
+  [4;35;1mState Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;36;1mRegion Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" IN ('53')) [0m
+  [4;35;1mReport Load (0.6ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;36;1mReport Load (0.3ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_pinned (2.7ms)
+Rendered regions/_option (0.2ms)
+Rendered regions/_option (0.1ms)
+Rendered regions/_pinned (0.9ms)
+Rendered regions/_pinned (1.2ms)
+Rendered reports/_preview (1.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.4ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+  [4;35;1mRegion Load (0.3ms)[0m   [0mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (1.8ms)
+Completed in 97ms (View: 21, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 20:49:14) [GET]
+  [4;36;1mState Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;35;1mRegion Load (0.1ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" IS NULL) [0m
+  [4;36;1mReport Load (0.7ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_option (1.4ms)
+Rendered regions/_option (0.2ms)
+Rendered reports/_preview (59.8ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+  [4;36;1mRegion Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (1.3ms)
+Completed in 92ms (View: 76, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 20:49:18) [GET]
+  Parameters: {"state_fips"=>"53"}
+  [4;35;1mState Load (0.5ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;36;1mCounty Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions".state_id = 1) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.3ms)
+Completed in 15ms (View: 4, DB: 1) | 200 OK [http://localhost/regions/counties?state_fips=53]
+
+
+Processing RegionsController#pin (for 127.0.0.1 at 2010-04-06 20:49:20) [POST]
+  Parameters: {"authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", "county_fips"=>"53033"}
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>[], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 2ms (View: 1, DB: 0) | 400 Bad Request [http://localhost/regions/pin]
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 20:50:15) [GET]
+  [4;35;1mState Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;36;1mRegion Load (0.1ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;35;1mReport Load (0.6ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;36;1mReport Load (0.3ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_option (1.3ms)
+Rendered regions/_option (0.1ms)
+Rendered reports/_preview (1.5ms)
+Rendered reports/_preview (0.5ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+  [4;35;1mRegion Load (0.3ms)[0m   [0mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (1.0ms)
+Completed in 91ms (View: 76, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 20:50:18) [GET]
+  Parameters: {"state_fips"=>"53"}
+  [4;36;1mState Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;35;1mCounty Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions".state_id = 1) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.3ms)
+Completed in 14ms (View: 4, DB: 1) | 200 OK [http://localhost/regions/counties?state_fips=53]
+
+
+Processing RegionsController#pin (for 127.0.0.1 at 2010-04-06 20:50:20) [POST]
+  Parameters: {"authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", "county_fips"=>"53033"}
+  [4;36;1mRegion Load (0.2ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" = '53033') LIMIT 1[0m
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>["53033"], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 12ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/pin]
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 20:53:39) [GET]
+  [4;35;1mState Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;36;1mRegion Load (0.7ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" IN ('53033')) [0m
+  [4;35;1mReport Load (0.5ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_pinned (3.7ms)
+Rendered regions/_option (1.4ms)
+Rendered regions/_option (0.1ms)
+Rendered regions/_pinned (0.8ms)
+Rendered regions/_pinned (0.9ms)
+Rendered reports/_preview (1.5ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+  [4;35;1mRegion Load (0.3ms)[0m   [0mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (0.9ms)
+Completed in 99ms (View: 81, DB: 3) | 200 OK [http://localhost/]
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 20:53:43) [GET]
+  [4;36;1mState Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;35;1mRegion Load (0.1ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" IS NULL) [0m
+  [4;36;1mReport Load (0.6ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_option (1.4ms)
+Rendered regions/_option (0.1ms)
+Rendered reports/_preview (1.4ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+  [4;36;1mRegion Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (0.9ms)
+Completed in 32ms (View: 17, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 20:53:45) [GET]
+  Parameters: {"state_fips"=>"53"}
+  [4;35;1mState Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;36;1mCounty Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions".state_id = 1) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.3ms)
+Completed in 15ms (View: 4, DB: 1) | 200 OK [http://localhost/regions/counties?state_fips=53]
+
+
+Processing RegionsController#pin (for 127.0.0.1 at 2010-04-06 20:53:48) [POST]
+  Parameters: {"state_fips"=>"53", "authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o="}
+  [4;35;1mRegion Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') LIMIT 1[0m
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>["53"], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 12ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/pin]
+
+
+Processing RegionsController#pin (for 127.0.0.1 at 2010-04-06 20:53:48) [POST]
+  Parameters: {"authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", "county_fips"=>"53033"}
+  [4;36;1mRegion Load (0.2ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" = '53033') LIMIT 1[0m
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>["53", "53033"], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 12ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/pin]
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 20:53:53) [GET]
+  [4;35;1mState Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;36;1mRegion Load (0.4ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" IN ('53','53033')) [0m
+  [4;35;1mReport Load (0.5ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_pinned (61.0ms)
+Rendered regions/_pinned (3.1ms)
+Rendered regions/_option (0.2ms)
+Rendered regions/_option (0.1ms)
+Rendered regions/_pinned (0.8ms)
+Rendered regions/_pinned (1.5ms)
+Rendered regions/_pinned (0.9ms)
+Rendered regions/_pinned (0.8ms)
+Rendered reports/_preview (1.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+  [4;35;1mRegion Load (0.3ms)[0m   [0mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (1.0ms)
+Completed in 103ms (View: 85, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 20:54:30) [GET]
+  [4;36;1mState Load (0.4ms)[0m   [0;1mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;35;1mRegion Load (0.2ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" IS NULL) [0m
+  [4;36;1mReport Load (0.6ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;35;1mReport Load (0.3ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_option (1.6ms)
+Rendered regions/_option (0.2ms)
+Rendered reports/_preview (1.5ms)
+Rendered reports/_preview (0.5ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+  [4;36;1mRegion Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (1.1ms)
+Completed in 90ms (View: 75, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 20:54:32) [GET]
+  Parameters: {"state_fips"=>"53"}
+  [4;35;1mState Load (19.7ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;36;1mCounty Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions".state_id = 1) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.3ms)
+Completed in 36ms (View: 4, DB: 20) | 200 OK [http://localhost/regions/counties?state_fips=53]
+
+
+Processing RegionsController#pin (for 127.0.0.1 at 2010-04-06 20:54:33) [POST]
+  Parameters: {"state_fips"=>"53", "authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o="}
+  [4;35;1mRegion Load (0.2ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') LIMIT 1[0m
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>["53"], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 11ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/pin]
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 20:56:01) [GET]
+  [4;36;1mState Load (0.4ms)[0m   [0;1mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;35;1mRegion Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" IN ('53')) [0m
+  [4;36;1mReport Load (333.0ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;35;1mReport Load (0.4ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_pinned (2.1ms)
+Rendered regions/_option (0.2ms)
+Rendered regions/_option (0.1ms)
+Rendered regions/_pinned (1.0ms)
+Rendered regions/_pinned (0.9ms)
+Rendered reports/_preview (1.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.4ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.9ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.4ms)
+  [4;36;1mRegion Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (0.9ms)
+Completed in 430ms (View: 81, DB: 335) | 200 OK [http://localhost/]
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 20:56:04) [GET]
+  [4;35;1mState Load (0.5ms)[0m   [0mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;36;1mRegion Load (0.1ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" IS NULL) [0m
+  [4;35;1mReport Load (0.6ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;36;1mReport Load (0.5ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_option (1.5ms)
+Rendered regions/_option (0.2ms)
+Rendered reports/_preview (1.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.4ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+  [4;35;1mRegion Load (0.3ms)[0m   [0mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (1.2ms)
+Completed in 67ms (View: 19, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 20:56:07) [GET]
+  Parameters: {"state_fips"=>"53"}
+  [4;36;1mState Load (29.1ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;35;1mCounty Load (0.5ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions".state_id = 1) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.4ms)
+Completed in 53ms (View: 12, DB: 30) | 200 OK [http://localhost/regions/counties?state_fips=53]
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 20:56:15) [GET]
+  [4;36;1mState Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;35;1mRegion Load (0.1ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" IS NULL) [0m
+  [4;36;1mReport Load (0.6ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_option (1.5ms)
+Rendered regions/_option (0.2ms)
+Rendered reports/_preview (1.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.3ms)
+  [4;36;1mRegion Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (0.9ms)
+Completed in 33ms (View: 18, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 20:56:17) [GET]
+  [4;35;1mState Load (16.4ms)[0m   [0mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;36;1mRegion Load (0.2ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" IS NULL) [0m
+  [4;35;1mReport Load (0.9ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_option (1.4ms)
+Rendered regions/_option (0.1ms)
+Rendered reports/_preview (1.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+  [4;35;1mRegion Load (0.3ms)[0m   [0mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (1.5ms)
+Completed in 52ms (View: 18, DB: 19) | 200 OK [http://localhost/]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 20:56:20) [GET]
+  Parameters: {"state_fips"=>"53"}
+  [4;36;1mState Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;35;1mCounty Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions".state_id = 1) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.3ms)
+Completed in 15ms (View: 4, DB: 1) | 200 OK [http://localhost/regions/counties?state_fips=53]
+
+
+Processing RegionsController#pin (for 127.0.0.1 at 2010-04-06 20:56:21) [POST]
+  Parameters: {"state_fips"=>"53", "authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o="}
+  [4;36;1mRegion Load (0.2ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') LIMIT 1[0m
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>["53"], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 12ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/pin]
+
+
+Processing RegionsController#unpin (for 127.0.0.1 at 2010-04-06 20:56:23) [DELETE]
+  Parameters: {"authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", "fips"=>"53"}
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>[], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 3ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/unpin]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 20:56:31) [GET]
+  Parameters: {"state_fips"=>"33"}
+  [4;35;1mState Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" = '33') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;36;1mCounty Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions".state_id = 2) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.3ms)
+Completed in 16ms (View: 4, DB: 1) | 200 OK [http://localhost/regions/counties?state_fips=33]
+
+
+Processing RegionsController#pin (for 127.0.0.1 at 2010-04-06 20:56:32) [POST]
+  Parameters: {"state_fips"=>"33", "authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o="}
+  [4;35;1mRegion Load (0.2ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" = '33') LIMIT 1[0m
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>["33"], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 11ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/pin]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 20:56:34) [GET]
+  Parameters: {"state_fips"=>"53"}
+  [4;36;1mState Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;35;1mCounty Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions".state_id = 1) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.3ms)
+Completed in 16ms (View: 5, DB: 1) | 200 OK [http://localhost/regions/counties?state_fips=53]
+
+
+Processing RegionsController#pin (for 127.0.0.1 at 2010-04-06 20:56:35) [POST]
+  Parameters: {"state_fips"=>"53", "authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o="}
+  [4;36;1mRegion Load (0.2ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') LIMIT 1[0m
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>["33", "53"], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 11ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/pin]
+
+
+Processing RegionsController#pin (for 127.0.0.1 at 2010-04-06 20:56:36) [POST]
+  Parameters: {"state_fips"=>"53", "authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o="}
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>["33", "53"], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 2ms (View: 1, DB: 0) | 400 Bad Request [http://localhost/regions/pin]
+
+
+Processing RegionsController#unpin (for 127.0.0.1 at 2010-04-06 20:56:38) [DELETE]
+  Parameters: {"authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", "fips"=>"53"}
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>["33"], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 3ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/unpin]
+
+
+Processing RegionsController#pin (for 127.0.0.1 at 2010-04-06 20:56:39) [POST]
+  Parameters: {"state_fips"=>"53", "authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o="}
+  [4;35;1mRegion Load (0.2ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') LIMIT 1[0m
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>["33", "53"], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 11ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/pin]
+
+
+Processing RegionsController#pin (for 127.0.0.1 at 2010-04-06 20:56:42) [POST]
+  Parameters: {"authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", "county_fips"=>"53033"}
+  [4;36;1mRegion Load (0.2ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" = '53033') LIMIT 1[0m
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>["33", "53", "53033"], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 11ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/pin]
+
+
+Processing RegionsController#unpin (for 127.0.0.1 at 2010-04-06 20:56:44) [DELETE]
+  Parameters: {"authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", "fips"=>"53"}
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>["33", "53033"], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 3ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/unpin]
+
+
+Processing RegionsController#pin (for 127.0.0.1 at 2010-04-06 20:56:45) [POST]
+  Parameters: {"state_fips"=>"53", "authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o="}
+  [4;35;1mRegion Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') LIMIT 1[0m
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>["33", "53033", "53"], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 12ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/pin]
+
+
+Processing RegionsController#unpin (for 127.0.0.1 at 2010-04-06 20:56:46) [DELETE]
+  Parameters: {"authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", "fips"=>"53"}
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>["33", "53033"], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/unpin]
+
+
+Processing RegionsController#pin (for 127.0.0.1 at 2010-04-06 20:56:49) [POST]
+  Parameters: {"state_fips"=>"53", "authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o="}
+  [4;36;1mRegion Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') LIMIT 1[0m
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>["33", "53033", "53"], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 12ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/pin]
+
+
+Processing RegionsController#pin (for 127.0.0.1 at 2010-04-06 20:56:50) [POST]
+  Parameters: {"authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", "county_fips"=>"53033"}
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>["33", "53033", "53"], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 2ms (View: 1, DB: 0) | 400 Bad Request [http://localhost/regions/pin]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 20:56:52) [GET]
+  Parameters: {"state_fips"=>"33"}
+  [4;35;1mState Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" = '33') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;36;1mCounty Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions".state_id = 2) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.3ms)
+Completed in 15ms (View: 5, DB: 1) | 200 OK [http://localhost/regions/counties?state_fips=33]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 20:56:57) [GET]
+  Parameters: {"state_fips"=>"53"}
+  [4;35;1mState Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;36;1mCounty Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions".state_id = 1) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.3ms)
+Completed in 15ms (View: 4, DB: 1) | 200 OK [http://localhost/regions/counties?state_fips=53]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 20:57:00) [GET]
+  Parameters: {"state_fips"=>"33"}
+  [4;35;1mState Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" = '33') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;36;1mCounty Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions".state_id = 2) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.3ms)
+Completed in 14ms (View: 4, DB: 1) | 200 OK [http://localhost/regions/counties?state_fips=33]
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 20:59:08) [GET]
+  [4;35;1mState Load (0.4ms)[0m   [0mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;36;1mRegion Load (0.5ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" IN ('33','53033','53')) [0m
+  [4;35;1mReport Load (0.6ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_pinned (2.4ms)
+Rendered regions/_pinned (1.1ms)
+Rendered regions/_pinned (3.1ms)
+Rendered regions/_option (0.2ms)
+Rendered regions/_option (0.1ms)
+Rendered regions/_pinned (0.9ms)
+Rendered regions/_pinned (0.8ms)
+Rendered regions/_pinned (0.9ms)
+Rendered regions/_pinned (0.8ms)
+Rendered regions/_pinned (0.7ms)
+Rendered regions/_pinned (1.3ms)
+Rendered reports/_preview (1.5ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.3ms)
+  [4;35;1mRegion Load (0.3ms)[0m   [0mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (1.0ms)
+Completed in 109ms (View: 29, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 20:59:52) [GET]
+  Parameters: {"state_fips"=>"53"}
+  [4;36;1mState Load (28.6ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;35;1mCounty Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions".state_id = 1) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.3ms)
+Completed in 124ms (View: 27, DB: 29) | 200 OK [http://localhost/regions/counties?state_fips=53]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 21:00:19) [GET]
+  Parameters: {"state_fips"=>"33"}
+  [4;36;1mState Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" = '33') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;35;1mCounty Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions".state_id = 2) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.3ms)
+Completed in 15ms (View: 5, DB: 1) | 200 OK [http://localhost/regions/counties?state_fips=33]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 21:00:44) [GET]
+  Parameters: {"state_fips"=>"53"}
+  [4;36;1mState Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;35;1mCounty Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions".state_id = 1) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.3ms)
+Completed in 15ms (View: 4, DB: 1) | 200 OK [http://localhost/regions/counties?state_fips=53]
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 21:02:05) [GET]
+  [4;36;1mState Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;35;1mRegion Load (0.6ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" IN ('33','53033','53')) [0m
+  [4;36;1mReport Load (27.1ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;35;1mReport Load (0.4ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;36;1mReport Load (0.3ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_pinned (2.5ms)
+Rendered regions/_pinned (0.8ms)
+Rendered regions/_pinned (2.9ms)
+Rendered regions/_option (0.2ms)
+Rendered regions/_option (0.1ms)
+Rendered regions/_pinned (0.8ms)
+Rendered regions/_pinned (0.8ms)
+Rendered regions/_pinned (0.9ms)
+Rendered regions/_pinned (64.7ms)
+Rendered regions/_pinned (1.0ms)
+Rendered regions/_pinned (0.9ms)
+Rendered reports/_preview (1.7ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.5ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+  [4;36;1mRegion Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (1.6ms)
+Completed in 168ms (View: 122, DB: 29) | 200 OK [http://localhost/]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 21:02:08) [GET]
+  Parameters: {"state_fips"=>"53"}
+  [4;35;1mState Load (16.9ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;36;1mCounty Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions".state_id = 1) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.4ms)
+Completed in 33ms (View: 5, DB: 17) | 200 OK [http://localhost/regions/counties?state_fips=53]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 21:02:13) [GET]
+  Parameters: {"state_fips"=>"33"}
+  [4;35;1mState Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" = '33') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;36;1mCounty Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions".state_id = 2) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.3ms)
+Completed in 16ms (View: 5, DB: 1) | 200 OK [http://localhost/regions/counties?state_fips=33]
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 21:07:42) [GET]
+  [4;35;1mState Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;36;1mRegion Load (0.4ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" IN ('33','53033','53')) [0m
+  [4;35;1mReport Load (14.6ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;36;1mReport Load (0.3ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_pinned (2.3ms)
+Rendered regions/_pinned (0.9ms)
+Rendered regions/_pinned (4.5ms)
+Rendered regions/_option (0.2ms)
+Rendered regions/_option (0.2ms)
+Rendered regions/_pinned (1.3ms)
+Rendered regions/_pinned (0.8ms)
+Rendered regions/_pinned (0.9ms)
+Rendered regions/_pinned (1.8ms)
+Rendered regions/_pinned (1.0ms)
+Rendered regions/_pinned (1.0ms)
+Rendered reports/_preview (1.8ms)
+Rendered reports/_preview (1.9ms)
+Rendered reports/_preview (0.4ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.4ms)
+Rendered reports/_preview (0.2ms)
+  [4;35;1mRegion Load (0.3ms)[0m   [0mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (0.9ms)
+Completed in 164ms (View: 70, DB: 16) | 200 OK [http://localhost/]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 21:07:45) [GET]
+  Parameters: {"state_fips"=>"53"}
+  [4;36;1mState Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;35;1mCounty Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions".state_id = 1) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.3ms)
+Completed in 15ms (View: 4, DB: 1) | 200 OK [http://localhost/regions/counties?state_fips=53]
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 21:08:04) [GET]
+  [4;36;1mState Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;35;1mRegion Load (0.5ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" IN ('33','53033','53')) [0m
+  [4;36;1mReport Load (0.6ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_pinned (2.3ms)
+Rendered regions/_pinned (0.9ms)
+Rendered regions/_pinned (2.7ms)
+Rendered regions/_option (0.2ms)
+Rendered regions/_option (0.1ms)
+Rendered regions/_pinned (0.8ms)
+Rendered regions/_pinned (0.8ms)
+Rendered regions/_pinned (0.9ms)
+Rendered regions/_pinned (0.8ms)
+Rendered regions/_pinned (1.0ms)
+Rendered regions/_pinned (0.8ms)
+Rendered reports/_preview (1.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.5ms)
+  [4;36;1mRegion Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (1.3ms)
+Completed in 47ms (View: 29, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 21:08:07) [GET]
+  Parameters: {"state_fips"=>"53"}
+  [4;35;1mState Load (34.1ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;36;1mCounty Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions".state_id = 1) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.3ms)
+Completed in 50ms (View: 4, DB: 34) | 200 OK [http://localhost/regions/counties?state_fips=53]
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 21:08:17) [GET]
+  [4;35;1mState Load (0.4ms)[0m   [0mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;36;1mRegion Load (0.4ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" IN ('33','53033','53')) [0m
+  [4;35;1mReport Load (0.6ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_pinned (2.1ms)
+Rendered regions/_pinned (0.8ms)
+Rendered regions/_pinned (3.3ms)
+Rendered regions/_option (0.2ms)
+Rendered regions/_option (0.1ms)
+Rendered regions/_pinned (0.8ms)
+Rendered regions/_pinned (0.9ms)
+Rendered regions/_pinned (0.9ms)
+Rendered regions/_pinned (0.8ms)
+Rendered regions/_pinned (0.9ms)
+Rendered regions/_pinned (0.7ms)
+Rendered reports/_preview (1.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (58.2ms)
+Rendered reports/_preview (0.4ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+  [4;35;1mRegion Load (0.5ms)[0m   [0mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (1.2ms)
+Completed in 105ms (View: 86, DB: 3) | 200 OK [http://localhost/]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 21:08:19) [GET]
+  Parameters: {"state_fips"=>"53"}
+  [4;36;1mState Load (19.8ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;35;1mCounty Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions".state_id = 1) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.3ms)
+Completed in 36ms (View: 5, DB: 20) | 200 OK [http://localhost/regions/counties?state_fips=53]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 21:08:24) [GET]
+  Parameters: {"state_fips"=>"33"}
+  [4;36;1mState Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" = '33') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;35;1mCounty Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions".state_id = 2) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.3ms)
+Completed in 14ms (View: 4, DB: 1) | 200 OK [http://localhost/regions/counties?state_fips=33]
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 21:08:36) [GET]
+  [4;36;1mState Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;35;1mRegion Load (0.6ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" IN ('33','53033','53')) [0m
+  [4;36;1mReport Load (0.8ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_pinned (60.7ms)
+Rendered regions/_pinned (1.0ms)
+Rendered regions/_pinned (3.1ms)
+Rendered regions/_option (0.2ms)
+Rendered regions/_option (0.1ms)
+Rendered regions/_pinned (0.9ms)
+Rendered regions/_pinned (1.0ms)
+Rendered regions/_pinned (1.2ms)
+Rendered regions/_pinned (0.8ms)
+Rendered regions/_pinned (0.9ms)
+Rendered regions/_pinned (0.8ms)
+Rendered reports/_preview (1.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+  [4;36;1mRegion Load (0.4ms)[0m   [0;1mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (0.9ms)
+Completed in 106ms (View: 88, DB: 3) | 200 OK [http://localhost/]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 21:08:40) [GET]
+  Parameters: {"state_fips"=>"53"}
+  [4;35;1mState Load (17.4ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;36;1mCounty Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions".state_id = 1) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.4ms)
+Completed in 33ms (View: 5, DB: 18) | 200 OK [http://localhost/regions/counties?state_fips=53]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 21:10:34) [GET]
+  Parameters: {"state_fips"=>"33"}
+  [4;35;1mState Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" = '33') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;36;1mCounty Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions".state_id = 2) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.3ms)
+Completed in 15ms (View: 4, DB: 1) | 200 OK [http://localhost/regions/counties?state_fips=33]
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 21:12:59) [GET]
+  [4;35;1mState Load (17.9ms)[0m   [0mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;36;1mRegion Load (0.6ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" IN ('33','53033','53')) [0m
+  [4;35;1mReport Load (1.1ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_pinned (2.3ms)
+Rendered regions/_pinned (1.1ms)
+Rendered regions/_pinned (3.0ms)
+Rendered regions/_option (0.2ms)
+Rendered regions/_option (0.1ms)
+Rendered regions/_pinned (0.8ms)
+Rendered regions/_pinned (0.8ms)
+Rendered regions/_pinned (0.8ms)
+Rendered regions/_pinned (0.9ms)
+Rendered regions/_pinned (0.8ms)
+Rendered regions/_pinned (0.8ms)
+Rendered reports/_preview (1.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.3ms)
+  [4;35;1mRegion Load (0.3ms)[0m   [0mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (0.9ms)
+Completed in 103ms (View: 64, DB: 21) | 200 OK [http://localhost/]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 21:13:02) [GET]
+  Parameters: {"state_fips"=>"53"}
+  [4;36;1mState Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;35;1mCounty Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions".state_id = 1) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.3ms)
+Completed in 15ms (View: 4, DB: 1) | 200 OK [http://localhost/regions/counties?state_fips=53]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 21:13:08) [GET]
+  Parameters: {"state_fips"=>"33"}
+  [4;36;1mState Load (0.4ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" = '33') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;35;1mCounty Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions".state_id = 2) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.3ms)
+Completed in 15ms (View: 4, DB: 1) | 200 OK [http://localhost/regions/counties?state_fips=33]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 21:13:14) [GET]
+  Parameters: {"state_fips"=>"53"}
+  [4;36;1mState Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;35;1mCounty Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions".state_id = 1) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.3ms)
+Completed in 14ms (View: 4, DB: 1) | 200 OK [http://localhost/regions/counties?state_fips=53]
+
+
+Processing RegionsController#unpin (for 127.0.0.1 at 2010-04-06 21:13:21) [DELETE]
+  Parameters: {"authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", "fips"=>"53033"}
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>["33", "53"], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/unpin]
+
+
+Processing RegionsController#unpin (for 127.0.0.1 at 2010-04-06 21:13:21) [DELETE]
+  Parameters: {"authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", "fips"=>"33"}
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>["53"], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 3ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/unpin]
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 21:13:22) [GET]
+  [4;36;1mState Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;35;1mRegion Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" IN ('53')) [0m
+  [4;36;1mReport Load (0.7ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_pinned (2.2ms)
+Rendered regions/_option (0.2ms)
+Rendered regions/_option (0.1ms)
+Rendered regions/_pinned (0.9ms)
+Rendered regions/_pinned (0.9ms)
+Rendered reports/_preview (1.4ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.3ms)
+  [4;36;1mRegion Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (0.9ms)
+Completed in 37ms (View: 20, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 21:13:27) [GET]
+  Parameters: {"state_fips"=>"53"}
+  [4;35;1mState Load (15.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;36;1mCounty Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions".state_id = 1) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.3ms)
+Completed in 30ms (View: 4, DB: 16) | 200 OK [http://localhost/regions/counties?state_fips=53]
+
+
+Processing RegionsController#pin (for 127.0.0.1 at 2010-04-06 21:13:28) [POST]
+  Parameters: {"state_fips"=>"53", "authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o="}
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>["53"], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 2ms (View: 1, DB: 0) | 400 Bad Request [http://localhost/regions/pin]
+
+
+Processing RegionsController#pin (for 127.0.0.1 at 2010-04-06 21:13:31) [POST]
+  Parameters: {"authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", "county_fips"=>"53033"}
+  [4;35;1mRegion Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" = '53033') LIMIT 1[0m
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>["53", "53033"], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 12ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/pin]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 21:13:38) [GET]
+  Parameters: {"state_fips"=>"33"}
+  [4;36;1mState Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" = '33') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;35;1mCounty Load (0.4ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions".state_id = 2) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.3ms)
+Completed in 16ms (View: 5, DB: 1) | 200 OK [http://localhost/regions/counties?state_fips=33]
+
+
+Processing RegionsController#pin (for 127.0.0.1 at 2010-04-06 21:13:39) [POST]
+  Parameters: {"state_fips"=>"33", "authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o="}
+  [4;36;1mRegion Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" = '33') LIMIT 1[0m
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>["53", "53033", "33"], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 12ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/pin]
+
+
+Processing RegionsController#pin (for 127.0.0.1 at 2010-04-06 21:14:11) [POST]
+  Parameters: {"authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", "county_fips"=>"33019"}
+  [4;35;1mRegion Load (0.2ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" = '33019') LIMIT 1[0m
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>["53", "53033", "33", "33019"], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 11ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/pin]
+
+
+Processing RegionsController#unpin (for 127.0.0.1 at 2010-04-06 21:17:39) [DELETE]
+  Parameters: {"authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", "fips"=>"53033"}
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>["53", "33", "33019"], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 19ms (View: 17, DB: 0) | 200 OK [http://localhost/regions/unpin]
+
+
+Processing RegionsController#unpin (for 127.0.0.1 at 2010-04-06 21:17:40) [DELETE]
+  Parameters: {"authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", "fips"=>"33"}
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>["53", "33019"], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 3ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/unpin]
+
+
+Processing RegionsController#unpin (for 127.0.0.1 at 2010-04-06 21:17:40) [DELETE]
+  Parameters: {"authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", "fips"=>"33019"}
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>["53"], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 3ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/unpin]
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 21:17:41) [GET]
+  [4;36;1mState Load (9.0ms)[0m   [0;1mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;35;1mRegion Load (0.6ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" IN ('53')) [0m
+  [4;36;1mReport Load (0.9ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_pinned (2.4ms)
+Rendered regions/_option (0.2ms)
+Rendered regions/_option (0.1ms)
+Rendered regions/_pinned (0.8ms)
+Rendered regions/_pinned (0.8ms)
+Rendered reports/_preview (1.4ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.4ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+  [4;36;1mRegion Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (0.9ms)
+Completed in 70ms (View: 45, DB: 12) | 200 OK [http://localhost/]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 21:17:45) [GET]
+  Parameters: {"state_fips"=>"33"}
+  [4;35;1mState Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" = '33') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;36;1mCounty Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions".state_id = 2) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.3ms)
+Completed in 16ms (View: 4, DB: 1) | 200 OK [http://localhost/regions/counties?state_fips=33]
+
+
+Processing RegionsController#pin (for 127.0.0.1 at 2010-04-06 21:17:46) [POST]
+  Parameters: {"state_fips"=>"33", "authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o="}
+  [4;35;1mRegion Load (0.2ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" = '33') LIMIT 1[0m
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>["53", "33"], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 28ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/pin]
+
+
+Processing RegionsController#pin (for 127.0.0.1 at 2010-04-06 21:17:57) [POST]
+  Parameters: {"authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", "county_fips"=>"33019"}
+  [4;36;1mRegion Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" = '33019') LIMIT 1[0m
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>["53", "33", "33019"], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 11ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/pin]
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 21:21:21) [GET]
+  [4;35;1mState Load (17.5ms)[0m   [0mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;36;1mRegion Load (0.7ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" IN ('53','33','33019')) [0m
+  [4;35;1mReport Load (1.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_pinned (2.3ms)
+Rendered regions/_pinned (1.2ms)
+Rendered regions/_pinned (2.7ms)
+Rendered regions/_option (0.2ms)
+Rendered regions/_option (0.2ms)
+Rendered regions/_pinned (0.8ms)
+Rendered regions/_pinned (0.9ms)
+Rendered regions/_pinned (0.8ms)
+Rendered regions/_pinned (0.8ms)
+Rendered regions/_pinned (61.7ms)
+Rendered regions/_pinned (1.2ms)
+Rendered reports/_preview (1.6ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+  [4;35;1mRegion Load (0.3ms)[0m   [0mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (1.0ms)
+Completed in 142ms (View: 105, DB: 20) | 200 OK [http://localhost/]
+
+
+Processing RegionsController#unpin (for 127.0.0.1 at 2010-04-06 21:22:49) [DELETE]
+  Parameters: {"authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", "fips"=>"53"}
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>["33", "33019"], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 3ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/unpin]
+
+
+Processing RegionsController#unpin (for 127.0.0.1 at 2010-04-06 21:22:52) [DELETE]
+  Parameters: {"authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", "fips"=>"33019"}
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>["33"], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 3ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/unpin]
+
+
+Processing RegionsController#unpin (for 127.0.0.1 at 2010-04-06 21:22:53) [DELETE]
+  Parameters: {"authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", "fips"=>"33"}
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>[], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/unpin]
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 21:25:14) [GET]
+  [4;36;1mState Load (0.5ms)[0m   [0;1mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;35;1mRegion Load (0.2ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;36;1mReport Load (0.6ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_option (1.3ms)
+Rendered regions/_option (0.1ms)
+Rendered reports/_preview (1.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+  [4;36;1mRegion Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (0.9ms)
+Completed in 103ms (View: 87, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 21:47:24) [GET]
+  Parameters: {"state_fips"=>"53"}
+  [4;35;1mState Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;36;1mCounty Load (0.5ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions".state_id = 1) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.3ms)
+Completed in 17ms (View: 4, DB: 1) | 200 OK [http://localhost/regions/counties?state_fips=53]
+
+
+Processing RegionsController#pin (for 127.0.0.1 at 2010-04-06 21:47:24) [POST]
+  Parameters: {"state_fips"=>"53", "authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o="}
+  [4;35;1mRegion Load (0.2ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') LIMIT 1[0m
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>["53"], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 12ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/pin]
+
+
+Processing RegionsController#unpin (for 127.0.0.1 at 2010-04-06 21:47:27) [DELETE]
+  Parameters: {"authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", "fips"=>"53"}
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>[], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 2ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/unpin]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 21:47:35) [GET]
+  Parameters: {"state_fips"=>"33"}
+  [4;36;1mState Load (0.2ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" = '33') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;35;1mCounty Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions".state_id = 2) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.3ms)
+Completed in 71ms (View: 61, DB: 1) | 200 OK [http://localhost/regions/counties?state_fips=33]
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 21:48:20) [GET]
+  [4;36;1mState Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;35;1mRegion Load (0.2ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;36;1mReport Load (0.6ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;35;1mReport Load (0.3ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_option (1.4ms)
+Rendered regions/_option (0.1ms)
+Rendered reports/_preview (1.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+  [4;36;1mRegion Load (0.4ms)[0m   [0;1mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (1.0ms)
+Completed in 34ms (View: 18, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 21:48:29) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/USA/USA.shp" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 21:48:29) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/USA/USA.dbf" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 21:48:29) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/CBSA/CBSA.shp" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 21:48:29) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/CBSA/CBSA.dbf" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 21:48:29) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/METDIV/METDIV.shp" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 21:48:29) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/METDIV/METDIV.dbf" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 21:48:33) [GET]
+  Parameters: {"state_fips"=>"53"}
+  [4;35;1mState Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;36;1mCounty Load (0.4ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions".state_id = 1) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.3ms)
+Completed in 15ms (View: 4, DB: 1) | 200 OK [http://localhost/regions/counties?state_fips=53]
+
+
+Processing RegionsController#pin (for 127.0.0.1 at 2010-04-06 21:48:35) [POST]
+  Parameters: {"state_fips"=>"53", "authenticity_token"=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o="}
+  [4;35;1mRegion Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') LIMIT 1[0m
+{:_csrf_token=>"Z9VRJEiaTmlREI/+VzHMwBcbdOd/RoIO8gXhmpwDq1o=", :regions=>["53"], :session_id=>"9e1d04cc83ecc8a3afe25ab5222f6cc0"}
+Completed in 11ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/pin]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 21:48:39) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/USA/USA.shp" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 21:48:39) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/USA/USA.dbf" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 21:48:39) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/CBSA/CBSA.shp" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 21:48:39) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/CBSA/CBSA.dbf" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 21:48:39) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/METDIV/METDIV.shp" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 21:48:39) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/METDIV/METDIV.dbf" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 21:48:40) [GET]
+  [4;36;1mState Load (0.4ms)[0m   [0;1mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;35;1mRegion Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" IN ('53')) [0m
+  [4;36;1mReport Load (0.6ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;36;1mReport Load (0.4ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_pinned (2.1ms)
+Rendered regions/_option (0.2ms)
+Rendered regions/_option (0.1ms)
+Rendered regions/_pinned (1.5ms)
+Rendered regions/_pinned (0.8ms)
+Rendered reports/_preview (1.5ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+  [4;36;1mRegion Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (0.9ms)
+Completed in 53ms (View: 20, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 21:48:42) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/USA/USA.shp" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 21:48:42) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/USA/USA.dbf" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 21:48:42) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/CBSA/CBSA.shp" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 21:48:42) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/CBSA/CBSA.dbf" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 21:48:42) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/METDIV/METDIV.shp" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 21:48:42) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/METDIV/METDIV.dbf" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 21:48:45) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/USA/USA.shp" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 21:48:45) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/USA/USA.dbf" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 21:48:45) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/CBSA/CBSA.shp" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 21:48:45) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/CBSA/CBSA.dbf" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 21:48:45) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/METDIV/METDIV.shp" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 21:48:45) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/METDIV/METDIV.dbf" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+  [4;36;1mRegion Load (0.6ms)[0m   [0;1mSELECT * FROM "regions" LIMIT 1[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mRegion Load (0.5ms)[0m   [0;1mSELECT * FROM "regions" LIMIT 1[0m
+  [4;36;1mRegion Load (19.4ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" IN (53,53033)) [0m
+  [4;35;1mRegion Load (1.4ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" IN (53,53033)) [0m
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 23:31:55) [GET]
+
+TypeError (can't convert String into Integer):
+  app/controllers/application_controller.rb:16:in `[]'
+  app/controllers/application_controller.rb:16:in `setup_pinned_session'
+  app/controllers/application_controller.rb:15:in `each'
+  app/controllers/application_controller.rb:15:in `setup_pinned_session'
+  haml (2.2.22) lib/sass/plugin/rails.rb:20:in `process'
+
+Rendered rescues/_trace (34.3ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 23:32:50) [GET]
+
+TypeError (can't convert String into Integer):
+  app/controllers/application_controller.rb:16:in `[]'
+  app/controllers/application_controller.rb:16:in `setup_pinned_session'
+  app/controllers/application_controller.rb:15:in `each'
+  app/controllers/application_controller.rb:15:in `setup_pinned_session'
+  haml (2.2.22) lib/sass/plugin/rails.rb:20:in `process'
+
+Rendered rescues/_trace (34.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 23:34:54) [GET]
+  [4;35;1mState Load (0.5ms)[0m   [0mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;36;1mRegion Load (0.2ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;36;1mReport Load (24.7ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;35;1mReport Load (0.3ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;35;1mReport Load (0.3ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_option (1.3ms)
+Rendered regions/_option (0.1ms)
+  [4;36;1mRegion Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (2.6ms)
+Completed in 114ms (View: 66, DB: 27) | 200 OK [http://localhost/]
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 23:35:51) [GET]
+  [4;35;1mState Load (0.4ms)[0m   [0mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;36;1mRegion Load (0.2ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;36;1mReport Load (0.6ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_option (1.5ms)
+Rendered regions/_option (0.2ms)
+Rendered reports/_preview (1.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+  [4;36;1mRegion Load (0.4ms)[0m   [0;1mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (1.1ms)
+Completed in 49ms (View: 32, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 23:35:58) [GET]
+  Parameters: {"state_fips"=>"53"}
+  [4;35;1mState Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;36;1mCounty Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions".state_id = 1) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.3ms)
+Completed in 16ms (View: 4, DB: 1) | 200 OK [http://localhost/regions/counties?state_fips=53]
+
+
+Processing RegionsController#pin (for 127.0.0.1 at 2010-04-06 23:35:59) [POST]
+  Parameters: {"state_fips"=>"53", "authenticity_token"=>"7SPs313Kdf9dWs4i07H5g1fkQLzq0YBXQBowXP/Zv6Q="}
+  [4;35;1mRegion Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') LIMIT 1[0m
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.include?):
+  app/controllers/regions_controller.rb:6:in `pin'
+  haml (2.2.22) lib/sass/plugin/rails.rb:20:in `process'
+
+Rendered rescues/_trace (32.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 23:37:01) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/USA/USA.shp" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 23:37:01) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/USA/USA.dbf" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 23:37:01) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/CBSA/CBSA.shp" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 23:37:01) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/CBSA/CBSA.dbf" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 23:37:01) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/METDIV/METDIV.shp" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 23:37:01) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/METDIV/METDIV.dbf" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 23:39:03) [GET]
+  [4;36;1mState Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;35;1mRegion Load (0.2ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;35;1mReport Load (0.6ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_option (1.5ms)
+Rendered regions/_option (0.3ms)
+Rendered reports/_preview (1.6ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.3ms)
+  [4;35;1mRegion Load (0.3ms)[0m   [0mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (0.9ms)
+Completed in 53ms (View: 34, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 23:39:07) [GET]
+  Parameters: {"state_fips"=>"53"}
+  [4;36;1mState Load (0.4ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;35;1mCounty Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions".state_id = 1) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.3ms)
+Completed in 76ms (View: 5, DB: 1) | 200 OK [http://localhost/regions/counties?state_fips=53]
+
+
+Processing RegionsController#pin (for 127.0.0.1 at 2010-04-06 23:39:08) [POST]
+  Parameters: {"state_fips"=>"53", "authenticity_token"=>"qVvwwbBfRKyUA1o7OuOXisVzmhHOOEqgaBkwogPZUIA="}
+  [4;36;1mRegion Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') LIMIT 1[0m
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.include?):
+  app/controllers/regions_controller.rb:6:in `pin'
+  haml (2.2.22) lib/sass/plugin/rails.rb:20:in `process'
+
+Rendered rescues/_trace (32.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 23:40:21) [GET]
+  [4;35;1mState Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;36;1mRegion Load (0.2ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;36;1mReport Load (0.5ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;36;1mReport Load (0.3ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_option (1.3ms)
+Rendered regions/_option (0.1ms)
+Rendered reports/_preview (1.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+  [4;36;1mRegion Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (0.9ms)
+Completed in 33ms (View: 16, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 23:40:24) [GET]
+  Parameters: {"state_fips"=>"53"}
+  [4;35;1mState Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;36;1mCounty Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions".state_id = 1) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.3ms)
+Completed in 15ms (View: 4, DB: 1) | 200 OK [http://localhost/regions/counties?state_fips=53]
+
+
+Processing RegionsController#pin (for 127.0.0.1 at 2010-04-06 23:40:25) [POST]
+  Parameters: {"state_fips"=>"53", "authenticity_token"=>"DZ78D4OUdC1Y96LtJ0ZCLVNmgbiuMennWjc0/4NmkZo="}
+  [4;35;1mRegion Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') LIMIT 1[0m
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.<<):
+  app/controllers/regions_controller.rb:9:in `pin'
+  haml (2.2.22) lib/sass/plugin/rails.rb:20:in `process'
+
+Rendered rescues/_trace (32.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 23:41:02) [GET]
+  [4;36;1mState Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;35;1mRegion Load (0.2ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;35;1mReport Load (0.7ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_option (1.3ms)
+Rendered regions/_option (0.3ms)
+Rendered reports/_preview (1.5ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+  [4;35;1mRegion Load (0.3ms)[0m   [0mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (0.9ms)
+Completed in 34ms (View: 17, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 23:41:05) [GET]
+  Parameters: {"state_fips"=>"53"}
+  [4;36;1mState Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;35;1mCounty Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions".state_id = 1) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.3ms)
+Completed in 18ms (View: 4, DB: 1) | 200 OK [http://localhost/regions/counties?state_fips=53]
+
+
+Processing RegionsController#pin (for 127.0.0.1 at 2010-04-06 23:41:05) [POST]
+  Parameters: {"state_fips"=>"53", "authenticity_token"=>"jUR4JujK3Y6SX9Psb6kh2gQK+nw43WwhiHITSTfWN34="}
+  [4;36;1mRegion Load (0.2ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') LIMIT 1[0m
+{:_csrf_token=>"jUR4JujK3Y6SX9Psb6kh2gQK+nw43WwhiHITSTfWN34=", :pinned=>{"County"=>[], "Cbsa"=>[], "Csa"=>[], "State"=>[53]}, :session_id=>"1947881fea1a14a55ee52b81b3e7043d"}
+Completed in 13ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/pin]
+
+
+Processing RegionsController#unpin (for 127.0.0.1 at 2010-04-06 23:41:08) [DELETE]
+  Parameters: {"authenticity_token"=>"jUR4JujK3Y6SX9Psb6kh2gQK+nw43WwhiHITSTfWN34=", "fips"=>"53"}
+  [4;35;1mRegion Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') LIMIT 1[0m
+{:_csrf_token=>"jUR4JujK3Y6SX9Psb6kh2gQK+nw43WwhiHITSTfWN34=", :pinned=>{"County"=>[], "Cbsa"=>[], "Csa"=>[], "State"=>[]}, :session_id=>"1947881fea1a14a55ee52b81b3e7043d"}
+Completed in 12ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/unpin]
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 23:41:20) [GET]
+  [4;36;1mState Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;35;1mRegion Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;35;1mReport Load (0.6ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;36;1mReport Load (0.3ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_option (1.5ms)
+Rendered regions/_option (0.2ms)
+Rendered reports/_preview (1.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+  [4;35;1mRegion Load (0.3ms)[0m   [0mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (1.0ms)
+Completed in 35ms (View: 17, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 23:41:28) [GET]
+  [4;36;1mState Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;35;1mRegion Load (0.1ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;35;1mReport Load (0.6ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_option (1.3ms)
+Rendered regions/_option (0.1ms)
+Rendered reports/_preview (1.4ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+Rendered reports/_preview (0.3ms)
+  [4;35;1mRegion Load (0.4ms)[0m   [0mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (1.0ms)
+Completed in 92ms (View: 17, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 23:41:33) [GET]
+  Parameters: {"state_fips"=>"53"}
+  [4;36;1mState Load (29.4ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;35;1mCounty Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions".state_id = 1) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.4ms)
+Completed in 45ms (View: 4, DB: 30) | 200 OK [http://localhost/regions/counties?state_fips=53]
+
+
+Processing RegionsController#pin (for 127.0.0.1 at 2010-04-06 23:41:33) [POST]
+  Parameters: {"state_fips"=>"53", "authenticity_token"=>"jUR4JujK3Y6SX9Psb6kh2gQK+nw43WwhiHITSTfWN34="}
+  [4;36;1mRegion Load (0.2ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') LIMIT 1[0m
+{:_csrf_token=>"jUR4JujK3Y6SX9Psb6kh2gQK+nw43WwhiHITSTfWN34=", :pinned=>{"County"=>[], "Cbsa"=>[], "Csa"=>[], "State"=>[53]}, :session_id=>"1947881fea1a14a55ee52b81b3e7043d"}
+Completed in 12ms (View: 1, DB: 0) | 200 OK [http://localhost/regions/pin]
+
+
+Processing GeneratorController#show (for 127.0.0.1 at 2010-04-06 23:41:35) [GET]
+  [4;35;1mState Load (0.3ms)[0m   [0mSELECT * FROM "regions" WHERE ( ("regions"."type" = 'State' ) ) [0m
+  [4;36;1mRegion Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" IN (53)) [0m
+  [4;35;1mRegion Load (0.1ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" IN (NULL)) [0m
+  [4;36;1mReport Load (0.6ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'performance') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'hcahps') [0m
+  [4;36;1mReport Load (0.2ms)[0m   [0;1mSELECT * FROM "reports" WHERE ("reports"."domain" = 'medicare') [0m
+  [4;35;1mReport Load (0.2ms)[0m   [0mSELECT * FROM "reports" WHERE ("reports"."domain" = 'mortality') [0m
+Rendering template within layouts/application
+Rendering generator/show
+Rendered regions/_pinned (3.4ms)
+Rendered regions/_option (1.1ms)
+Rendered regions/_option (0.2ms)
+Rendered reports/_preview (1.4ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+Rendered reports/_preview (0.2ms)
+  [4;36;1mRegion Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" LIMIT 1[0m
+Rendered regions/_pinned (0.9ms)
+Completed in 97ms (View: 20, DB: 2) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 23:41:37) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/USA/USA.shp" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 23:41:37) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/USA/USA.dbf" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 23:41:37) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/CBSA/CBSA.shp" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 23:41:37) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/CBSA/CBSA.dbf" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 23:41:37) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/METDIV/METDIV.shp" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 23:41:37) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/METDIV/METDIV.dbf" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 23:41:39) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/USA/USA.shp" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 23:41:39) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/USA/USA.dbf" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 23:41:39) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/CBSA/CBSA.shp" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 23:41:39) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/CBSA/CBSA.dbf" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 23:41:39) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/METDIV/METDIV.shp" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 23:41:39) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/METDIV/METDIV.dbf" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing RegionsController#counties (for 127.0.0.1 at 2010-04-06 23:41:47) [GET]
+  Parameters: {"state_fips"=>"53"}
+  [4;35;1mState Load (0.6ms)[0m   [0mSELECT * FROM "regions" WHERE ("regions"."fips" = '53') AND ( ("regions"."type" = 'State' ) ) LIMIT 1[0m
+  [4;36;1mCounty Load (0.3ms)[0m   [0;1mSELECT * FROM "regions" WHERE ("regions".state_id = 1) AND ( ("regions"."type" = 'County' ) ) [0m
+Rendered regions/_option (0.5ms)
+Completed in 17ms (View: 4, DB: 1) | 200 OK [http://localhost/regions/counties?state_fips=53]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 23:41:48) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/USA/USA.shp" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 23:41:48) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/USA/USA.dbf" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 23:41:48) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/CBSA/CBSA.shp" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 23:41:48) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/CBSA/CBSA.dbf" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 23:41:48) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/METDIV/METDIV.shp" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-06 23:41:48) [GET]
+
+ActionController::RoutingError (No route matches "/flash/maps/METDIV/METDIV.dbf" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)

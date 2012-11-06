@@ -1,0 +1,52 @@
+%h2 Choose regions and/or hospitals to include in the report
+
+%ul.tabs
+  %li.active= link_to 'State and County', '#state-county'
+  %li= link_to 'Metropolitan Area', '#metro-area'
+  %li= link_to 'Zip code or Address', '#zip-address'
+
+.pane#state-county
+  .bucket
+    %h2 Selected States and Counties
+    %p States and Counties added here are included in the report
+    = render :partial => 'pinned_region', :collection => @pinned_regions
+    .bucket-item.template
+      - form_tag(unpin_regions_path, :method => :delete) do
+        %span.name
+        %input{:type => 'hidden', :name => 'fips'}
+        %input{:type => 'submit', :value => 'Remove from report'}
+  .selector
+    - form_tag(pin_regions_path, :method => :post) do
+      %select{:name => 'state_fips'}
+        %option{:default => true, :value => ''} Choose a State
+        = render :partial => 'state_option', :collection => @states
+      %input{:type => 'submit', :value => 'Add to Report', :disabled => true}
+    - form_tag(pin_regions_path, :method => :post, :class => 'county') do
+      %select{:name => 'county_fips'}
+        %option{:value => ''} Choose a County
+      %input{:type => 'submit', :value => 'Add to Report', :disabled => true}
+    .swfcontainer
+      = swf_tag 'state-county', :flash_version => 9, :parameters => { :wmode => 'transparent' }, :alt => 'Get Flash'
+    %p.help
+      Click a State to select, click again to zoom in.<br/>
+      Click a County to select.<br/>
+      Click and drag to pan the map.
+  
+.pane#metro-area
+  .bucket
+    %h2 Selected Regions
+    %p Metro Regions added here are included the report
+  .selector
+    .swfcontainer
+      = swf_tag 'metro-area', :flash_version => 9, :parameters => { :wmode => 'transparent' }, :alt => 'Get Flash'
+    %p.help Select a region to add it to the selection.
+
+.pane#zip-address
+  .bucket
+    %h2 Selected Regions
+    %p Hospitals added here are included the report
+  .selector
+    %label Zip code, address, or landmark (e.g. The Space Needle)
+    %input{:type => 'text', :size => 60, :value => ''}
+    %input{:type => 'button', :value => 'Search'}
+  %p.help Search for individual hospitals by name, zip code, etc.

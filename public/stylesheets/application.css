@@ -1,0 +1,118 @@
+body {
+  color: black;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  font-size: 11px;
+  line-height: 1.5; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal; }
+
+h1 {
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 5px 0; }
+
+h2 {
+  font-size: 16px;
+  text-transform: uppercase; }
+
+h3 {
+  font-size: 14px;
+  font-weight: bold; }
+
+h4 {
+  font-size: 12px;
+  font-weight: bold; }
+
+a, a:link, a:visited, a:hover, a:active {
+  text-decoration: none; }
+
+ol, ul {
+  list-style: none; }
+
+#wrapper {
+  margin: 2em auto;
+  position: relative;
+  width: 85em; }
+
+#messages {
+  width: 50em;
+  margin: 0 auto; }
+  #messages .notice, #messages .warning, #messages .error {
+    display: none;
+    margin-bottom: 0.5em;
+    padding: 0.5em; }
+  #messages .notice {
+    background: #ccccff;
+    border: 1px solid #0000ff; }
+  #messages .warning {
+    background: #ffffcc;
+    border: 1px solid #ff9900; }
+  #messages .error {
+    background: #ffcccc;
+    border: 1px solid #ff0000; }
+
+#footer {
+  clear: left;
+  color: #999;
+  padding: 5px 0;
+  border-top: 1px solid #999; }
+  #footer li {
+    display: inline;
+    padding-right: 1em; }
+  #footer #copyright {
+    float: right; }
+
+#regions-tabs {
+  font-size: 1.2em;
+  border-bottom: 1px solid black; }
+  #regions-tabs li {
+    display: inline;
+    text-align: center;
+    padding: 0.5em 1em 0.5em 0; }
+  #regions-tabs li.active a {
+    color: black; }
+
+#regions-panes {
+  margin-bottom: 1em; }
+  #regions-panes .pane {
+    overflow: hidden;
+    padding: 1em; }
+    #regions-panes .pane .pinned {
+      float: right;
+      width: 20em; }
+      #regions-panes .pane .pinned ul {
+        padding: 0.5em; }
+    #regions-panes .pane .selector {
+      float: left;
+      width: 62em; }
+      #regions-panes .pane .selector select {
+        width: 20em; }
+      #regions-panes .pane .selector input[type=submit], #regions-panes .pane .selector input[type=button] {
+        width: 10em; }
+      #regions-panes .pane .selector input[type=text] {
+        width: 20em; }
+      #regions-panes .pane .selector .help {
+        margin-top: 0.3em;
+        font-size: 1.1em;
+        float: right;
+        width: 26em; }
+      #regions-panes .pane .selector .swfcontainer {
+        margin-top: 0.5em;
+        height: 30em; }
+
+#reports h3 {
+  clear: left;
+  border-bottom: 1px solid black; }
+#reports .report {
+  float: left;
+  width: 27em;
+  margin: 1em 1em 1em 0; }
+  #reports .report img.thumbnail {
+    float: left;
+    width: 20em;
+    height: 14em; }
+
+#templates, .template {
+  display: none; }

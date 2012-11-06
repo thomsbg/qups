@@ -1,0 +1,85 @@
+%h2 Step 1: Choose regions
+
+#regions
+  %ul#regions-tabs
+    %li= link_to 'State and County', '#state-county'
+    %li= link_to 'Metropolitan Area', '#metro-area'
+    %li= link_to 'Zip Code or Address', '#zip-address'
+  
+  #regions-panes
+    .pane#state-county
+      .pinned
+        %h3 Selected States &amp; Counties
+        %ul
+          = render :partial => 'regions/pinned', :collection => @pinned['State']
+          = render :partial => 'regions/pinned', :collection => @pinned['County']
+      .selector
+        %h3 Choose States &amp; Counties
+        .help
+          Click a State to highlight, click again to zoom in.
+          Click a County to highlight.
+          Click and drag to pan the map.
+        - form_tag(pin_regions_path, :method => :post) do
+          %select#state-fips{:name => 'state_fips'}
+            %option{:default => true, :value => ''} Choose a State
+            = render :partial => 'regions/option', :collection => @states
+          %input{:type => 'submit', :value => 'Add to Report', :disabled => true}
+        - form_tag(pin_regions_path, :method => :post) do
+          %select#county-fips{:name => 'county_fips'}
+            %option{:value => ''} Choose a County
+          %input{:type => 'submit', :value => 'Add to Report', :disabled => true}  
+        .swfcontainer
+          = swf_tag 'state-county', :flash_version => 9, :parameters => { :wmode => 'transparent' }, :alt => 'Get Flash'
+    .pane#metro-area
+      .pinned
+        %h3 Selected Metro Areas
+        %ul
+          = render :partial => 'regions/pinned', :collection => @pinned['Csa']
+          = render :partial => 'regions/pinned', :collection => @pinned['Cbsa']
+      .selector
+        %h3 Choose Metro Areas
+        .help Select a major or minor metropolitan area to add it to the selection.
+        - form_tag(pin_regions_path, :method => :post) do
+          %select{:name => 'csa_fips'}
+            %option{:default => true, :value => ''} Choose a Major Area
+            = render :partial => 'regions/state_option', :collection => @csas
+          %input{:type => 'submit', :value => 'Add to Report', :disabled => true}
+        - form_tag(pin_regions_path, :method => :post) do
+          %select{:name => 'cbsa_fips'}
+            %option{:default => true, :value => ''} Choose a Minor Area
+            = render :partial => 'regions/option', :collection => @cbsas
+          %input{:type => 'submit', :value => 'Add to Report', :disabled => true}
+        .swfcontainer
+          = swf_tag 'metro-area', :flash_version => 9, :parameters => { :wmode => 'transparent' }, :alt => 'Get Flash'
+    .pane#zip-address
+      .pinned
+        %h3 Selected Hospitals
+        %ul
+          = render :partial => 'regions/pinned', :collection => @pinned['Hospital']
+      .selector
+        %h3 Choose Hospitals
+        .help Search for individual hospitals by name or zip code.
+        - form_tag(search_hospitals_path, :method => :get) do
+          %input#search-type-name{:type => 'radio', :name => 'type', :value => 'name', :checked  => true}
+          %label{:for => 'search-type-name'} Name
+          %input#search-type-zip{:type => 'radio', :name => 'type', :value => 'name'}
+          %label{:for => 'search-type-zip'} Zip Code
+          %br
+          %input{:type => 'text', :name => 'query', :value => ''}
+          %input{:type => 'button', :value => 'Search'}
+          .autocomplete
+        .results
+
+#reports
+  %h2 Step 2: Choose a report
+  %h3 Performance
+  = render :partial => 'reports/preview', :collection => @reports['performance']
+  %h3 Patient Satisfaction
+  = render :partial => 'reports/preview', :collection => @reports['hcahps']
+  %h3 Medicare
+  = render :partial => 'reports/preview', :collection => @reports['medicare']
+  %h3 Mortality
+  = render :partial => 'reports/preview', :collection => @reports['mortality']
+  
+#templates
+  = render :partial => 'regions/pinned', :locals => { :pinned => Region.first }

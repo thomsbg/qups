@@ -1,0 +1,5 @@
+.report
+  %h4.title= link_to preview.name, preview.url
+  %p.description
+    = image_tag(preview.thumbnail, :alt => 'preview', :class => 'thumbnail')
+    = preview.description

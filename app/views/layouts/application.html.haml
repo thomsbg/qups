@@ -1,0 +1,27 @@
+!!! 1.1
+%html{ html_attrs }
+  %head
+    %title= @page_title || page_class
+    = stylesheet_link_tag 'cupertino/jquery-ui', 'reset', 'application'
+    = yield :css
+    = javascript_include_tag 'jquery', 'jquery-ui', 'jquery-relatedselects', 'swfobject', 'application'
+    = yield :js
+  
+  %body{:class => page_class}
+    #wrapper
+      #header
+        %h1 QuPS
+      
+      #messages
+        .notice= flash[:notice]
+        .warning= flash[:warning]
+        .error= flash[:error]
+      
+      #main
+        = yield
+    
+      #footer
+        %span#copyright &copy; 2010 QUPS.org
+        %ul
+          %li= link_to 'Contact Us', static_path('contact_us')
+          %li= link_to 'Feedback', static_path('feedback')

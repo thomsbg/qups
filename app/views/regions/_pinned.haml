@@ -1,0 +1,5 @@
+.pinned-item
+  - form_tag(unpin_regions_path, :method => :delete) do
+    %span.name= pinned.name
+    %input{:type => 'hidden', :name => 'fips', :value => "#{pinned.fips}" }
+    %input{:type => 'submit', :value => 'Remove from report'}
